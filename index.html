@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo: Leyes de Usabilidad - Estética-Usabilidad + Jakob</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #1a1a1a;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .versions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .version-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 30px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .version-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .version-card.good {
+            border-color: #10b981;
+        }
+
+        .version-card.good:hover {
+            border-color: #059669;
+            background: #ecfdf5;
+        }
+
+        .version-card.bad {
+            border-color: #ef4444;
+        }
+
+        .version-card.bad:hover {
+            border-color: #dc2626;
+            background: #fef2f2;
+        }
+
+        .version-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .version-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .version-description {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .laws-explanation {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .laws-explanation h3 {
+            color: #1e293b;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .law {
+            margin-bottom: 20px;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .law h4 {
+            color: #1e293b;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .law p {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1f2937;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .github-link:hover {
+            background: #374151;
+        }
+
+        @media (max-width: 768px) {
+            .versions-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🎨</div>
+        <h1>Leyes de Usabilidad</h1>
+        <p class="subtitle">
+            Comparación interactiva del <strong>Efecto Estética-Usabilidad</strong> y la <strong>Ley de Jakob</strong> 
+            aplicadas al diseño de interfaces de usuario.
+        </p>
+
+        <div class="versions-grid">
+            <a href="version-a.html" class="version-card good">
+                <div class="version-icon">✅</div>
+                <h3 class="version-title">Versión A</h3>
+                <p class="version-description">
+                    Diseño que <strong>cumple</strong> las leyes de usabilidad. 
+                    Interfaz limpia, predecible y accesible.
+                </p>
+            </a>
+
+            <a href="version-b.html" class="version-card bad">
+                <div class="version-icon">❌</div>
+                <h3 class="version-title">Versión B</h3>
+                <p class="version-description">
+                    Diseño que <strong>rompe</strong> las leyes de usabilidad. 
+                    Interfaz caótica, impredecible y confusa.
+                </p>
+            </a>
+        </div>
+
+        <div class="laws-explanation">
+            <h3>📚 Leyes Aplicadas</h3>
+            
+            <div class="law">
+                <h4>Efecto Estética-Usabilidad</h4>
+                <p>
+                    Los usuarios perciben interfaces atractivas como más fáciles de usar. 
+                    Un diseño visualmente agradable mejora la percepción de calidad y facilita 
+                    la interacción del usuario.
+                </p>
+            </div>
+
+            <div class="law">
+                <h4>Ley de Jakob</h4>
+                <p>
+                    Los usuarios pasan la mayor parte de su tiempo en otros sitios web. 
+                    Por tanto, es mejor seguir patrones de diseño conocidos y familiares 
+                    para reducir la fricción cognitiva.
+                </p>
+            </div>
+        </div>
+
+        <a href="https://github.com" class="github-link" target="_blank" rel="noopener">
+            <span>📁</span>
+            Ver en GitHub
+        </a>
+    </div>
+</body>
+</html>
