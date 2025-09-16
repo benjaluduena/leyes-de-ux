@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versión A - Cumple las Leyes (Estética-Usabilidad + Jakob)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .version-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            width: 400px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .version-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .login-form {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #1a1a1a;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #374151;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group.invalid input {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+        }
+
+        .error-text {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .password-row {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 6px 8px;
+            border: 1px solid #e5e7eb;
+            background: #ffffff;
+            border-radius: 6px;
+            color: #374151;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .toggle-password:hover { background: #f9fafb; }
+
+        .btn-primary[disabled] {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .success-banner {
+            display: none;
+            margin-top: 12px;
+            padding: 10px 12px;
+            background: #ecfdf5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 24px;
+        }
+
+        .forgot-password a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .forgot-password a:hover {
+            color: #764ba2;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 24px 0;
+            color: #9ca3af;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: #e5e7eb;
+        }
+
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
+        .social-login {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .social-btn:hover {
+            background: #f9fafb;
+            border-color: #d1d5db;
+        }
+
+        .signup-link {
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .signup-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Explicación */
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+            border-left: 4px solid #10b981;
+        }
+
+        .explanation h3 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .explanation ul { margin-left: 20px; color: #4b5563; }
+        .explanation li { margin-bottom: 8px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="version-container">
+        <div class="version-title">✅ VERSIÓN A - CUMPLE LAS LEYES</div>
+        <div class="login-form">
+            <div class="logo">
+                <div class="logo-icon">🔐</div>
+                <h2>Bienvenido de vuelta</h2>
+                <p class="subtitle">Ingresa a tu cuenta para continuar</p>
+            </div>
+
+            <form id="formA" novalidate>
+                <div class="form-group">
+                    <label for="emailA">Correo electrónico</label>
+                    <input type="email" id="emailA" placeholder="nombre@ejemplo.com" required autocomplete="email" inputmode="email" aria-invalid="false" aria-describedby="emailA-error">
+                    <p id="emailA-error" class="error-text" role="alert"></p>
+                </div>
+
+                <div class="form-group password-row">
+                    <label for="passwordA">Contraseña</label>
+                    <input type="password" id="passwordA" placeholder="••••••••" required autocomplete="current-password" aria-invalid="false" aria-describedby="passwordA-error">
+                    <button type="button" id="togglePassword" class="toggle-password" aria-label="Mostrar u ocultar contraseña" aria-pressed="false">Mostrar</button>
+                    <p id="passwordA-error" class="error-text" role="alert"></p>
+                </div>
+
+                <div class="forgot-password">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn-primary">Iniciar Sesión</button>
+
+                <div class="divider">o continúa con</div>
+
+                <div class="social-login">
+                    <button type="button" class="social-btn">
+                        <span>🔵</span> Google
+                    </button>
+                    <button type="button" class="social-btn">
+                        <span>📘</span> Facebook
+                    </button>
+                </div>
+
+                <div class="signup-link">
+                    ¿No tienes cuenta? <a href="#">Regístrate aquí</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="explanation">
+            <h3>📐 Aplicación de las Leyes:</h3>
+            <ul>
+                <li><strong>Efecto Estética-Usabilidad:</strong> Diseño limpio, moderno y visualmente atractivo con gradientes suaves, espaciado consistente y animaciones sutiles que aumentan la percepción de calidad y facilidad de uso.</li>
+                <li><strong>Ley de Jakob:</strong> Sigue patrones conocidos: orden email/contraseña, botón principal destacado, opciones sociales y enlace de registro en ubicaciones previsibles para reducir fricción cognitiva.</li>
+                <li><strong>Accesibilidad:</strong> Contrastes adecuados, campos etiquetados, estados de foco visibles y jerarquía clara facilitan el flujo.</li>
+            </ul>
+        </div>
+
+        <p style="text-align:center; margin-top:16px; font-size:13px; color:#6b7280;">
+            <a href="version-b.html" style="color:#ffffff; background:#4b5563; padding:6px 10px; border-radius:6px; text-decoration:none;">Ver Versión B</a>
+        </p>
+    </div>
+
+    <script>
+        // Validación en vivo y feedback accesible
+        const form = document.getElementById('formA');
+        const emailInput = document.getElementById('emailA');
+        const passwordInput = document.getElementById('passwordA');
+        const emailError = document.getElementById('emailA-error');
+        const passwordError = document.getElementById('passwordA-error');
+        const submitBtn = document.getElementById('submitBtn');
+
+        const isValidEmail = (value) => {
+            const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+            return pattern.test(value);
+        };
+
+        const validateEmail = () => {
+            const value = emailInput.value.trim();
+            if (value.length === 0) {
+                emailError.textContent = 'Ingresa tu correo electrónico.';
+                emailError.style.display = 'block';
+                emailInput.setAttribute('aria-invalid', 'true');
+                emailInput.parentElement.classList.add('invalid');
+                return false;
+            }
+            if (!isValidEmail(value)) {
+                emailError.textContent = 'Formato de correo inválido.';
+                emailError.style.display = 'block';
+                emailInput.setAttribute('aria-invalid', 'true');
+                emailInput.parentElement.classList.add('invalid');
+                return false;
+            }
+            emailError.textContent = '';
+            emailError.style.display = 'none';
+            emailInput.setAttribute('aria-invalid', 'false');
+            emailInput.parentElement.classList.remove('invalid');
+            return true;
+        };
+
+        const validatePassword = () => {
+            const value = passwordInput.value;
+            if (value.length === 0) {
+                passwordError.textContent = 'Ingresa tu contraseña.';
+                passwordError.style.display = 'block';
+                passwordInput.setAttribute('aria-invalid', 'true');
+                passwordInput.parentElement.classList.add('invalid');
+                return false;
+            }
+            if (value.length < 6) {
+                passwordError.textContent = 'La contraseña debe tener al menos 6 caracteres.';
+                passwordError.style.display = 'block';
+                passwordInput.setAttribute('aria-invalid', 'true');
+                passwordInput.parentElement.classList.add('invalid');
+                return false;
+            }
+            passwordError.textContent = '';
+            passwordError.style.display = 'none';
+            passwordInput.setAttribute('aria-invalid', 'false');
+            passwordInput.parentElement.classList.remove('invalid');
+            return true;
+        };
+
+        const updateSubmitState = () => {
+            const ok = validateEmail() && validatePassword();
+            submitBtn.disabled = !ok;
+            return ok;
+        };
+
+        emailInput.addEventListener('input', updateSubmitState);
+        emailInput.addEventListener('blur', validateEmail);
+        passwordInput.addEventListener('input', updateSubmitState);
+        passwordInput.addEventListener('blur', validatePassword);
+
+        // Toggle mostrar/ocultar contraseña
+        const toggleBtn = document.getElementById('togglePassword');
+        toggleBtn.addEventListener('click', () => {
+            const isPassword = passwordInput.getAttribute('type') === 'password';
+            passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+            toggleBtn.textContent = isPassword ? 'Ocultar' : 'Mostrar';
+            toggleBtn.setAttribute('aria-pressed', String(isPassword));
+            passwordInput.focus();
+        });
+
+        // Envío con estado de carga y banner de éxito
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!updateSubmitState()) { return; }
+            submitBtn.disabled = true;
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Iniciando...';
+            this.style.opacity = '0.95';
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                this.style.opacity = '1';
+                let banner = document.getElementById('successBanner');
+                if (!banner) {
+                    banner = document.createElement('div');
+                    banner.id = 'successBanner';
+                    banner.className = 'success-banner';
+                    banner.setAttribute('role', 'status');
+                    banner.setAttribute('aria-live', 'polite');
+                    this.parentElement.appendChild(banner);
+                }
+                banner.textContent = '✅ Login exitoso (Versión A). Experiencia fluida y predecible.';
+                banner.style.display = 'block';
+            }, 600);
+        });
+
+        // Efecto de enfoque suave en inputs
+        const inputsA = document.querySelectorAll('input');
+        inputsA.forEach(inputEl => {
+            inputEl.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+                this.parentElement.style.transition = 'transform 0.3s ease';
+            });
+            inputEl.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+
+        // Botones sociales con feedback
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const network = this.textContent.trim();
+                alert(`✅ Conectando con ${network}...\nRedirigiendo de forma segura`);
+            });
+        });
+
+        // Tooltip accesible para "olvidé contraseña"
+        const forgotLink = document.querySelector('.forgot-password a');
+        if (forgotLink) {
+            forgotLink.addEventListener('mouseenter', function() {
+                this.title = 'Te enviaremos un correo para restablecer tu contraseña';
+            });
+        }
+    </script>
+</body>
+</html>
+

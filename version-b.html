@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versión B - Rompe las Leyes (Estética-Usabilidad + Jakob)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: repeating-linear-gradient(45deg, #ff00ff, #ff00ff 10px, #00ffff 10px, #00ffff 20px);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: hue 8s linear infinite;
+        }
+
+        @keyframes hue { from { filter: hue-rotate(0deg);} to { filter: hue-rotate(360deg);} }
+
+        .version-container {
+            background: #f0f0f0;
+            border-radius: 0;
+            padding: 30px 10px 10px 30px;
+            box-shadow: inset 0 0 20px red, 0 0 20px lime;
+            width: 400px;
+            border: 3px dashed #999;
+            transform: rotate(-1deg);
+        }
+
+        .version-title {
+            text-align: left;
+            margin-bottom: 2px;
+            font-size: 22px;
+            font-weight: 900;
+            color: yellow;
+            text-shadow: 2px 2px 0 black;
+        }
+
+        .login-form { padding: 20px; }
+
+        h2 {
+            color: #ff00ff;
+            font-family: 'Impact', fantasy;
+            text-align: right;
+            font-size: 36px;
+            margin-bottom: 5px;
+            text-decoration: underline wavy;
+        }
+
+        .form-group { margin-bottom: 40px; position: relative; }
+
+        label {
+            display: inline;
+            color: #00ff00;
+            font-size: 11px;
+            font-family: monospace;
+            background: black;
+            padding: 2px;
+            position: absolute;
+            margin-left: 50px;
+            margin-top: -10px;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 3px;
+            border: none;
+            border-bottom: 4px solid red;
+            border-left: 4px solid blue;
+            background: yellow;
+            font-size: 18px;
+            color: purple;
+            margin-top: 20px;
+            transform: rotate(-2deg);
+        }
+
+        input[type="password"] {
+            width: 85%;
+            padding: 20px 5px;
+            border: 6px ridge orange;
+            background: linear-gradient(45deg, cyan, pink);
+            font-size: 8px;
+            margin-left: 30px;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        .btn-primary {
+            padding: 5px 10px;
+            background: lime;
+            color: red;
+            border: 5px double black;
+            font-size: 22px;
+            cursor: crosshair;
+            position: relative;
+            left: 150px;
+            transform: skew(20deg);
+            font-family: 'Impact', sans-serif;
+            margin-top: -20px;
+        }
+
+        .btn-primary:hover { background: red; color: lime; }
+
+        .forgot-password {
+            position: absolute;
+            margin-top: -100px;
+            right: 40px;
+            transform: rotate(90deg);
+        }
+
+        .forgot-password a { color: brown; font-size: 9px; text-decoration: line-through; }
+
+        .social-login { margin-top: 50px; display: block; }
+
+        .social-btn {
+            width: 50px;
+            height: 80px;
+            background: radial-gradient(orange, purple);
+            border: none;
+            margin: 5px;
+            float: right;
+            writing-mode: vertical-rl;
+            font-size: 10px;
+            color: white;
+            cursor: help;
+        }
+
+        .signup-link {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background: black;
+            color: yellow;
+            padding: 5px;
+            font-size: 20px;
+            animation: blink 0.5s infinite;
+        }
+
+        @keyframes blink { 0%,50%{opacity:1;} 51%,100%{opacity:0;} }
+    </style>
+</head>
+<body>
+    <div class="version-container">
+        <div class="version-title">❌ VERSIÓN B - ROMPE LAS LEYES</div>
+        <div class="login-form">
+            <h2>¡¡ENTRAR!!</h2>
+            <form id="formB">
+                <div class="form-group">
+                    <input type="text" id="userB" required>
+                    <label for="userB">USUARIO↗️</label>
+                </div>
+                <div class="form-group">
+                    <label for="passwordB">🔑CLAVE🔑</label>
+                    <input type="password" id="passwordB" required>
+                </div>
+                <button type="submit" class="btn-primary">GO!</button>
+                <div class="forgot-password">
+                    <a href="#">contraseña???</a>
+                </div>
+                <div class="social-login">
+                    <button type="button" class="social-btn">Red1</button>
+                    <button type="button" class="social-btn">Red2</button>
+                    <button type="button" class="social-btn">Red3</button>
+                </div>
+            </form>
+            <div class="signup-link">⚠️ CREAR CUENTA NUEVA ⚠️</div>
+        </div>
+
+        <div style="margin-top:20px; padding:15px; background:#fff3f3; border-left:4px solid #ef4444; font-size:14px; line-height:1.6;">
+            <h3 style="margin-bottom:8px;">🚫 Violación de las Leyes:</h3>
+            <ul style="margin-left:20px;">
+                <li><strong>Efecto Estética-Usabilidad:</strong> Colores estridentes, tipografías inconsistentes, desalineación, animaciones distractoras; la apariencia sugiere baja calidad y dificulta el uso.</li>
+                <li><strong>Ley de Jakob:</strong> Rompe convenciones: labels desubicados, controles rotados, botón fuera de flujo y contenido impredecible.</li>
+                <li><strong>Accesibilidad:</strong> Contraste incorrecto, foco poco visible, jerarquía confusa y elementos en posiciones inesperadas.</li>
+            </ul>
+            <p style="margin-top:10px;"><a href="version-a.html">Volver a Versión A</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Comportamiento confuso e inesperado
+        document.getElementById('formB').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const messages = ['❌ ERROR: Intenta de nuevo!!!','⚠️ PROCESANDO... ESPERA...','🔄 CARGANDO... NO CIERRES!','❓ ¿SEGURO QUE ES CORRECTO?'];
+            let count = 0;
+            const interval = setInterval(() => {
+                alert(messages[count]);
+                count++;
+                if (count >= messages.length) {
+                    clearInterval(interval);
+                    document.body.style.transform = 'rotate(2deg)';
+                    setTimeout(() => { document.body.style.transform = 'rotate(0)'; }, 500);
+                }
+            }, 800);
+        });
+
+        // Inputs molestos
+        document.getElementById('userB').addEventListener('keypress', function(e) {
+            if (Math.random() > 0.5) {
+                e.preventDefault();
+                this.value += e.key.toUpperCase();
+            }
+        });
+
+        document.getElementById('passwordB').addEventListener('focus', function() {
+            this.style.marginLeft = Math.random() * 50 + 'px';
+        });
+
+        // Social con efecto inesperado
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+                this.textContent = '???';
+                setTimeout(() => { alert('⚠️ FUNCIÓN NO DISPONIBLE!!! USAR FORMULARIO PRINCIPAL!!!'); }, 100);
+            });
+        });
+
+        // Enlace de registro que se mueve
+        const signupB = document.querySelector('.signup-link');
+        let moveInterval;
+        signupB.addEventListener('mouseenter', function() {
+            moveInterval = setInterval(() => {
+                this.style.left = Math.random() * 200 + 'px';
+                this.style.bottom = Math.random() * 100 + 'px';
+            }, 300);
+        });
+        signupB.addEventListener('mouseleave', function() { clearInterval(moveInterval); });
+    </script>
+</body>
+</html>
+
